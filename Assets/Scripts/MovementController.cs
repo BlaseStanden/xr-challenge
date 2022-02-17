@@ -19,6 +19,8 @@ public class MovementController : MonoBehaviour
 
     private Vector3 characterMoveDir = Vector3.zero;
 
+    
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
