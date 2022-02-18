@@ -41,6 +41,7 @@ public class MovementController : MonoBehaviour
         if (controller.isGrounded) // Check if player is grounded to allow to jump
         {
             characterJumpVerVol = -characterGravity * Time.deltaTime;
+            //characterMoveDir.y -= characterGravity * Time.deltaTime;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
