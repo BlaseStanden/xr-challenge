@@ -13,40 +13,52 @@ public class ScoreController : MonoBehaviour
 
     public GameObject endBlock;
 
+    public GameObject winText;
 
+    public AudioSource itemBeep;
+
+    public float timeDelay = 5f;
 
     int score;
 
-    private void Start()
+    private void Start()//Sets the current game objects to inactive on load
     {
         endBlock.SetActive(false);
+        winText.SetActive(false);
+
     }
 
     void OnCollisionEnter(Collision collision)
     {        
-        if (collision.gameObject.name == "Pickup")
+        if (collision.gameObject.name == "Pickup") //Checks if player collided with pickup
         {
-            int scr = collision.gameObject.GetComponent<Pickup>().GetPickedUp();
-            score += scr;           
+            int scr = collision.gameObject.GetComponent<Pickup>().GetPickedUp();//Uses pickup class to assign the score
+            score += scr;//Adds the score to a new int variable           
+            itemBeep.Play();
             Debug.Log("Current Score <color=yellow> : " + score + "</color>");
-            Destroy(collision.gameObject);
-            Debug.Log(collision.gameObject.name + " is destroyed");
+            Destroy(collision.gameObject);//Destroys the collided game object
+            Debug.Log(collision.gameObject.name + " is destroyed");                   
         }
-        if (score == 100)
+        if (score >= 500)//If the score is the same or more than this value it adds the UI elements and sets the end block active and visible
         {
             endBlock.SetActive(true);
+            winText.SetActive(true);
             Debug.Log("You win");
         }
-        if (collision.gameObject.name == "End Block")
+        if (collision.gameObject.name == "End Block")//Once the player collides with the end block, it will send the player to the end scene
         {
             SceneManager.LoadScene("End");
             Debug.Log("You Escaped");
         }
     }
 
-    void Update()
+    public int ScoreReturn()
     {
-        scoreText.text = "SCORE: " + score.ToString();
+       return score;
     }
 
+    void Update()
+    {
+        scoreText.text = "SCORE: " + score.ToString(); //Updates the UI element to score of the player
+    }
 }

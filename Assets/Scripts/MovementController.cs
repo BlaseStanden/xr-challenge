@@ -11,16 +11,15 @@ public class MovementController : MonoBehaviour
 
     public float turnTime = 0.1f;
     public float turnVol;
-    //public Transform target;
 
-    public float characterJumpVerVol = 5f;
+    public float characterJumpVerVol;
     public float characterGravity = 25f;
     public float characterJumpForce = 10f;
 
+    public AudioSource jump;
+
     private Vector3 characterMoveDir = Vector3.zero;
-
-    
-
+        
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -34,20 +33,18 @@ public class MovementController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         characterMoveDir = new Vector3(horizontal, 0f, vertical).normalized;
-
-        //transform.LookAt(target, Vector3.zero);
-
+       
         ////Jumping///       
         if (controller.isGrounded) // Check if player is grounded to allow to jump
         {
+            characterJumpVerVol = -0.5f;
             characterJumpVerVol = -characterGravity * Time.deltaTime;
-            //characterMoveDir.y -= characterGravity * Time.deltaTime;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                jump.Play();
                 characterJumpVerVol = characterJumpForce;
             }
-
         }
         else
         {
@@ -57,7 +54,7 @@ public class MovementController : MonoBehaviour
         ////Sprinting////
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            characterMovement = characterSprint;
+            characterMovement = characterSprint; //Assigns new speed
             
         }
         else
