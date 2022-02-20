@@ -1,0 +1,50 @@
+Objectives:
+
+Basic movement
+Walled environment
+Score system displayed on UI
+Pickups
+End zone after required pickups collected
+Does not allow the player to complete the level if required pickups are not collected
+
+Extras:
+
+Basic Enemies
+Basic move animations (directional move)
+Score System Added using XR Pickup Script with sound
+Damage System with sound
+Moving enemies
+Added Maze
+Rotating hazards
+Key system with sound pickups
+Load scene switch timer
+Key UI effect
+Basic audio
+Deathstate
+How to play canvas
+
+
+Some improvements which I would like to add if development continued would include:
+
+Highscore system
+Multiple level system
+Larger and more complex levels
+Booster pickup systems (Health buffs, Speed buffs, Slow time, ect)
+Background sound
+Enemy AI
+Different game modes (Speedrun mode, one hit kill mode, ect)
+Pause, Save, Load and resume functions
+Randomly generated objects
+Controller support (Xbox, PS4)
+Player animations
+
+Comments on the challenge:
+
+I really enjoyed this challenge and I felt it was a great opportunity to show off my knowledge with Unity. I believe if I had more time I would have continued to flesh out the game and improve the player experience.
+
+Upon reflection of the challenge, one area that I could improve on in the future includes the more comprehensive use of Git as 
+I believe that I could have pushed my changes more often to prevent backtracking to an earlier version of the project, resulting in loss of progress. 
+I would also like to make my code more efficient and transferable as some, although only a few, 
+were coded in a way that requires me to chance the properties in the script rather than the inspector. 
+
+I felt this project went really well and it was great to be using Unity every day again. I hope you have as much fun playing it as I had making it!
